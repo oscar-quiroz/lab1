@@ -1,12 +1,12 @@
 #!/bin/bash
 
-time_response=$(curl -o /dev/null -L -qs -w "%{time_total}" http://192.168.1.89:8765/)
-time_required=0,00899
-echo $time_required
-echo $time_response
+time_res=$(curl -o /dev/null -L -qs -w "%{time_total}" http://192.168.1.89:8765/)
+time_req=0,00899
+echo $time_req
+echo $time_res
 
 ## realizar cada minuto
-if awk 'BEGIN{exit ARGV[1]>ARGV[2]}' "$time_response" "$time_required"
+if awk 'BEGIN{exit ARGV[1]>ARGV[2]}' "$time_res" "$time_req"
 then
      echo "################ Peticion realizada.#####################"
     
