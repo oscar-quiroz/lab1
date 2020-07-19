@@ -1,7 +1,7 @@
 #!/bin/bash
 
-time_response=$(curl -o /dev/null -L -qs -w "%{time_total}" www.facebook.com)
-time_required=3.5
+time_response=$(curl -o /dev/null -L -qs -w "%{time_total}" http://192.168.1.89:8765/)
+time_required=0,009321
 echo $time_required
 echo $time_response
 
