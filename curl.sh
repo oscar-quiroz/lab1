@@ -14,9 +14,9 @@ then
 else
     echo " ERROR:: el tiempo de respuesta es mayor al tiempo definido "
     ## conectarse por ssh 
-        sshpass -p '123456'  ssh server2@192.168.1.89  ./init.sh ##conectado
+        sshpass -p '123456'  ssh -o StrictHostKeyChecking=no server2@192.168.1.89  'cd lab1;git pull; pm2 restart server.js' ##conectado
         ##./init.sh ----> ejecuta bash que hace pull del ultimo commit y reiniciar server.js
-    
+  
         
     ## se reinicia el serverdor remoto.
     echo "#############servicio reiniciado.#####################"
