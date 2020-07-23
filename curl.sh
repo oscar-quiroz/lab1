@@ -1,9 +1,12 @@
 #!/bin/bash
 
 time_res=$(curl -o /dev/null -L -qs -w "%{time_total}" http://192.168.1.89:8765/)
-time_req=0,00899
-echo $time_req
-echo $time_res
+time_req=1,850
+echo "tiempo requerido de respuesta: "  $time_req
+echo "tiempo de respuesta real:      "  $time_res
+
+echo 
+
 
 ## realizar cada minuto
 if awk 'BEGIN{exit ARGV[1]>ARGV[2]}' "$time_res" "$time_req"
@@ -12,12 +15,12 @@ then
     
         
 else
-    echo " ERROR:: el tiempo de respuesta es mayor al tiempo definido "
+    echo "#### ERROR:: el tiempo de respuesta es mayor al tiempo definido ####"
     ## conectarse por ssh 
         sshpass -p '123456'  ssh -o StrictHostKeyChecking=no server2@192.168.1.89  'cd lab1;git pull; pm2 restart server.js' ##conectado
         ##./init.sh ----> ejecuta bash que hace pull del ultimo commit y reiniciar server.js
   
         
     ## se reinicia el serverdor remoto.
-    echo "#############servicio reiniciado.#####################"
+    echo "############# servicio reiniciado. #####################"
 fi
