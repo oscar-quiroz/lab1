@@ -13,9 +13,6 @@ const server = http.createServer(function (req, res) {
 });
 
 
-// nuevo commit
-
-
 function generateRandomNumber(min, max) {
     return Math.random() * (max - min) + min;
   }
