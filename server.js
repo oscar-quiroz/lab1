@@ -12,6 +12,10 @@ const server = http.createServer(function (req, res) {
 
 });
 
+
+
+
+
 function generateRandomNumber(min, max) {
     return Math.random() * (max - min) + min;
   }
