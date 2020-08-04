@@ -13,6 +13,8 @@ const server = http.createServer(function (req, res) {
 });
 // Hola
 
+// commit 2 jsklaslajs
+
 function generateRandomNumber(min, max) {
     return Math.random() * (max - min) + min;
   }
